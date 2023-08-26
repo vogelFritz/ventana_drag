@@ -3,7 +3,9 @@ const intervalo = (a, x, b) => (x < a) ? a :
 
 const grafico = document.querySelector('.grafico'),
       ventana = document.querySelector('.ventana');
-let excesoX, excesoY;
+let excesoX, excesoY, 
+    aspectRatio = grafico.offsetWidth / grafico.offsetHeight;
+
 
 console.log( grafico.offsetLeft );
 console.log( grafico.offsetTop );
@@ -39,3 +41,10 @@ grafico.addEventListener('dragend', (e) => {
     // grafico.style.left = `${ e.clientX - excesoX }px`;
 });
 
+
+grafico.addEventListener('wheel', (e) => {
+    console.log(e);
+    // grafico.style.transform = `scale(${ scale },${ scale })`;
+    grafico.style.width = `${ grafico.offsetWidth + e.deltaY * aspectRatio }px`;
+    grafico.style.height = `${ grafico.offsetHeight + e.deltaY }px`;
+})

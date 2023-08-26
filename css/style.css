@@ -52,7 +52,17 @@ section {
     top: 100px;
     left: 300px;
     background-image: url('../img/Castillo-de-Neuschwanstein.jpg');
+    background-size:contain;
     width: 1024px;
     height: 768px;
     z-index: 2;
 }
+
+.grafico:hover {
+    cursor: grab;
+}
+
+.grafico:active {
+    cursor: grabbing;
+}
+
